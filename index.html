@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar JAVASRCIPT</title>
+	<style type="text/css">
+		#box{
+			width: 500px;
+			height: 500px;
+			background-color:black;
+		}
+		#text{
+			width: 300px;
+			height: 30px;
+		}
+		select{
+			width: 300px;
+			height: 30px;
+		}
+		button{
+			height: 30px;
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+		<br>
+	<div>
+		<h4> PILIH WARNA </h4>
+		<select id="color-list">
+			<option value="red" checked>MERAH</option>
+			<option value="blue" checked>BIRU</option>
+			<option value="green" checked>HIJAU</option>
+			<option value="yellow" checked>KUNING</option>
+			<option value="gray" checked>KELABU</option>
+			<option value="black" checked>HITAM </option>
+		</select>
+		<h4> PILIH LEBAR </h4>
+		<select id="size-list">
+			<option value="100px" checked>100px</option>
+			<option value="300px" checked>300px</option>
+			<option value="500px" checked>500px</option>
+			<option value="700px" checked>700px</option>
+			<option value="900px" checked>900px</option>
+			<option value="1000px" checked>1000px </option>
+		</select>
+		<br>
+		<br>
+		<button id="tampil">TAMPIL</button>
+		<button id="ilang">MENGHILANG</button>
+		<br>
+		<br>
+		<input id="text" type="text" placeholder="ukuran">
+		<button id="ambil">COBA</button>
+	</div>
+
+	</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script>
+	$(document).ready(function() {
+		var box = $('#box');
+		var colorList = $('#color-list');
+		var sizeList = $('#size-list');
+		colorList.on('change', function(eventSelect){
+			box.css('backgroundColor', eventSelect.target.value);
+		});
+		sizeList.on('change', function(eventSelect){
+			box.css('width', eventSelect.target.value);
+			box.css('height', eventSelect.target.value);
+		});
+
+		$('#tampil').click(function(){
+			$('#box').show('');
+		});
+		$('#ilang').click(function(){
+			$('#box').hide();
+		});
+
+		$('#ambil').on('click', function(){
+			var size = $('#text').val();
+			// var width = $('#box').css('width');
+			$('#box').css('width', size);
+			$('#box').css('height', size);
+			// alert(text);
+		});
+		// $('#fade').click(function(){
+		// 	$('#box').fadeToggle(1000);
+		// });
+	});
+</script>
